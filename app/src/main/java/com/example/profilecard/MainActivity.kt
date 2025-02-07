@@ -60,7 +60,7 @@ fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, end = 16.dp, top = 32.dp)
         ) {
             //profile picture
             Row(
@@ -70,7 +70,7 @@ fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
                     painter = image,
                     contentDescription = "The users profile picture",
                     Modifier
-                        .size(200.dp)
+                        .size(250.dp)
                         .clip(CircleShape)
                         .border(5.dp, colorResource(R.color.mainColor), CircleShape)
 
@@ -108,7 +108,7 @@ fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
             }
             //biography
             Row(
-                Modifier.padding(8.dp).fillMaxWidth()
+                Modifier.padding(16.dp).fillMaxWidth()
             ) {
                 Text(
                     text = bio,
