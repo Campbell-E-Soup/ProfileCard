@@ -8,7 +8,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -85,7 +84,7 @@ fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
                     text = username,
                     textAlign = TextAlign.Center,
                     color = colorResource(R.color.mainColor),
-                    fontSize = 40.sp,
+                    fontSize = 44.sp, //wonky in my preview but fine in app
                     fontWeight = FontWeight.Bold,
                     textDecoration = TextDecoration.Underline,
                     modifier = modifier
@@ -108,11 +107,12 @@ fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
             }
             //biography
             Row(
-                Modifier.padding(16.dp).fillMaxWidth()
+                Modifier.padding(8.dp).fillMaxWidth()
             ) {
                 Text(
                     text = bio,
                     color = colorResource(R.color.mainColor),
+                    textAlign = TextAlign.Center,
                     fontSize = 25.sp,
                     lineHeight = 30.sp,
                 )
