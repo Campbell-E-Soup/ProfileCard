@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -20,12 +21,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,7 +40,8 @@ class MainActivity : ComponentActivity() {
             ProfileCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ProfileCard(
-                        username = "Campbell-E-Soup",
+                        username = stringResource(R.string.username),
+                        bio = stringResource(R.string.bio),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -49,9 +51,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ProfileCard(username: String, modifier: Modifier = Modifier) {
+fun ProfileCard(username: String, bio: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.profilepic)
     Surface(
+        //set background color
         color = colorResource(R.color.backgroundColor),
         modifier = Modifier.fillMaxSize()
     ) {
@@ -59,6 +62,7 @@ fun ProfileCard(username: String, modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(16.dp)
         ) {
+            //profile picture
             Row(
                 Modifier.padding(8.dp)
             ) {
@@ -73,8 +77,9 @@ fun ProfileCard(username: String, modifier: Modifier = Modifier) {
                 )
             }
 
+            //username
             Row(
-                Modifier.padding(8.dp)
+                Modifier.padding(6.dp)
             ) {
                 Text(
                     text = username,
@@ -82,7 +87,34 @@ fun ProfileCard(username: String, modifier: Modifier = Modifier) {
                     color = colorResource(R.color.mainColor),
                     fontSize = 40.sp,
                     fontWeight = FontWeight.Bold,
+                    textDecoration = TextDecoration.Underline,
                     modifier = modifier
+                )
+            }
+
+            //about me
+            Row(
+                Modifier.padding(top = 2.dp)
+            ) {
+                Text(
+                    text = "About Me",
+                    textAlign = TextAlign.Center,
+                    color = colorResource(R.color.mainColor),
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = modifier
+                )
+            }
+            //biography
+            Row(
+                Modifier.padding(8.dp).fillMaxWidth()
+            ) {
+                Text(
+                    text = bio,
+                    color = colorResource(R.color.mainColor),
+                    fontSize = 25.sp,
+                    lineHeight = 30.sp,
                 )
             }
         }
@@ -94,6 +126,6 @@ fun ProfileCard(username: String, modifier: Modifier = Modifier) {
 @Composable
 fun CardPreview() {
     ProfileCardTheme {
-        ProfileCard("Campbell-E-Soup")
+        ProfileCard(stringResource(R.string.username),stringResource(R.string.bio))
     }
 }

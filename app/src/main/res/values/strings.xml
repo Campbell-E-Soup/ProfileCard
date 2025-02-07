@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProfileCard</string>
+    <string name="username">Campbell-E-Soup</string>
+    <string name="bio">Campbell is a programmer from Tennessee. He survives off of 836 pounds of soup and 641mg of caffeine a day. He was blinded by a lightmode user in 2018. He started programming somewhere between the invention of the computer and today. He has touched a computer at least once, and has at least a day of experience programming.</string>
 </resources>
